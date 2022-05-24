@@ -4,12 +4,16 @@ inputEl.addEventListener('blur', onBorderColor)
 function onBorderColor(event) {
     const inputData = String(event.currentTarget.dataset.length);
     const inputLength =String(event.currentTarget.value.length);
+    function updateClass(addCla, remCla) {
+        inputEl.classList.add(addCla);
+        inputEl.classList.remove(remCla);
+    }
+        if (inputData === inputLength) {
+            updateClass("valid","invalid");
+       
+        } else {
+        
+             updateClass("invalid","valid");
+        }
+    }
     
-    if (inputData === inputLength) {
-        inputEl.classList.add('valid')
-        inputEl.classList.remove('invalid')
-    } else {
-        inputEl.classList.add('invalid')
-        inputEl.classList.remove('valid')
-    }
-    }
